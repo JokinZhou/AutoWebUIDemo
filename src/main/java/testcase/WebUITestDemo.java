@@ -1,4 +1,4 @@
-package Jokin;
+package testcase;
 
 import java.io.File;
 import java.io.IOException;
