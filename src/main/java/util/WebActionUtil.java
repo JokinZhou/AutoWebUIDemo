@@ -3,11 +3,13 @@
  */
 package util;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 
 /**
@@ -20,7 +22,7 @@ public class WebActionUtil {
 	/**
 	 * 
 	 * @param driver 
-	 * @param pathType  ��ʾ���Ƕ�λ�ķ�ʽ id��name,Xpath
+	 * @param pathType  表示的是定位的方式    id,name,className,tagName,linkText,Xpath,cssSelector
 	 * @param pathValue
 	 * @return
 	 */
@@ -34,32 +36,39 @@ public class WebActionUtil {
 				@Override
 				public WebElement apply(AndroidDriver arg0) {
 					// TODO Auto-generated method stub
-					return arg0.findElement(By.id(locationValue));//ֱ�Ӱ�����ҵ���Ԫ����Ϊ����ֵ,return�����������������ֵ
+					return arg0.findElement(By.id(locationValue));//直接把这个找到的元素作为返回值,return是跳出这个方法返回值
 				}
 				
 			});*/
-			element=driver.findElement(By.id("locationValue"));
+			element=driver.findElement(By.id(locationValue));
 		}else if(locationStyle.equals("name")){
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);// ��ʽ�ȴ���ȫ�ֵȴ�30s����Ԫ���Ƿ��Ѿ�����
-			element=driver.findElement(By.name("locationValue"));
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);//隐式等待，全局等待30s不管元素是否已经加载
+			element=driver.findElement(By.name(locationValue));
 		}else if(locationStyle.equals("Xpath")){
-			//��ʾ�ȴ�
-/*			new AndroidDriverWait(driver,AndroidDriverWait.DEFAULT_SLEEP_TIMEOUT)
-			.until(new ExpectedCondition<WebElement>() {//until�ĵ���Ӣ����˼Ϊ   ֱ����������Ϊֹ
-				public WebElement apply(AndroidDriver d) {
-                    return d.findElement(By.xpath(locationValue));
-                }
-            });*/
-			element=driver.findElement(By.xpath("locationValue"));
-		}else if(locationStyle.equals("")){//����λ��ʽΪ��ʱ
-			System.out.println("û��д�붨λ��ʽ");
+			element=driver.findElement(By.xpath(locationValue));
+		}else if(locationStyle.equals("tagName")){
+			//List<WebElement> allInputs = driver.findElements(By.tagName("locationValue"));
+			//待实现因为一个页面中会有多个tagName一样的
+		}else if(locationStyle.equals("className")){
+			//待实现
+		}else if(locationStyle.equals("linkText")){
+			element=driver.findElement(By.linkText(locationValue));
+		}else if(locationStyle.equals("partialLinkText")){
+			//当你不能准确知道超链接上的文本信息或者只想通过一些关键字进行匹配时，可以使用这个方法来通过部分链接文字进行匹配
+			element=driver.findElement(By.partialLinkText(locationValue));
+		}else if(locationStyle.equals("cssSelector")){
+			element=driver.findElement(By.cssSelector(locationValue));
+		}
+
+		else if(locationStyle.equals("")){//当定位方式为空时
+			System.out.println("没有写入定位方式");
 		}
 		return element;
 	}
 	
 	/**
-	 * �����������Ĭ��text���ҵ���ѡ��ʱ��������յ���յĴ���
-	 * ���Ƶ��������element.clear()��û��Ч����; ��Ĭ�ϵ���ʾ�ı�(�ּ��Ƚ�ǳ)
+	 *清除文本框中的文字
+	 *
 	 * @param driver
 	 * @param editText
 	 */
@@ -72,6 +81,24 @@ public class WebActionUtil {
 			driver.findElementsByAndroidUIAutomator(content);
 		}*/
 		
+	}
+	/**
+	 * 切换到最新的窗口页
+	 * @param driver
+	 * @return 
+	 */
+	public static WebDriver  swhitchWindow(WebDriver driver){
+		
+	    // 获取当前页面句柄    
+        String handle = driver.getWindowHandle();    
+        // 获取所有页面的句柄，并循环判断不是当前的句柄   
+        for (String temhandle : driver.getWindowHandles()) {    
+            if (!temhandle.equals(handle))    
+                //driver.close();  
+                driver= driver.switchTo().window(temhandle);   
+             
+        }
+		return driver;
 	}
 
 
