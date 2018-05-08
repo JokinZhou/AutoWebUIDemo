@@ -2,16 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5248" started-at="2018-05-05T11:51:44Z" finished-at="2018-05-05T11:51:50Z">
+  <suite name="Default suite" duration-ms="6927" started-at="2018-05-08T05:15:23Z" finished-at="2018-05-08T05:15:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5248" started-at="2018-05-05T11:51:44Z" finished-at="2018-05-05T11:51:50Z">
-      <class name="testcase.longguoLoginTest">
-        <test-method status="PASS" signature="TestDome()[pri:0, instance:testcase.longguoLoginTest@6767c1fc]" name="TestDome" duration-ms="5226" started-at="2018-05-05T19:51:44Z" finished-at="2018-05-05T19:51:50Z">
+    <test name="Default test" duration-ms="6927" started-at="2018-05-08T05:15:23Z" finished-at="2018-05-08T05:15:30Z">
+      <class name="testcase.CaseLoginTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseLoginTest@29ee9faa]" name="beforeClass" is-config="true" duration-ms="12" started-at="2018-05-08T13:15:23Z" finished-at="2018-05-08T13:15:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TestDome -->
-      </class> <!-- testcase.longguoLoginTest -->
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:testcase.CaseLoginTest@29ee9faa]" name="loginTest" duration-ms="6898" started-at="2018-05-08T13:15:23Z" finished-at="2018-05-08T13:15:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseLoginTest@29ee9faa]" name="afterClass" is-config="true" duration-ms="0" started-at="2018-05-08T13:15:30Z" finished-at="2018-05-08T13:15:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testcase.CaseLoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

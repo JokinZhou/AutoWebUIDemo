@@ -1,5 +1,9 @@
 package testcase;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +16,7 @@ import org.testng.annotations.Test;
 
 import util.WebActionUtil;
 
-public class longguoLoginTest {
+public class LongguoLoginTest {
   @Test
   public void TestDome() throws IOException {
 	  // 通过查找当前路径返回一个规范化路径，这样可以把工程放到不同地方执行了
@@ -28,7 +32,7 @@ public class longguoLoginTest {
 	      webDriver.findElement(By.id("password")).sendKeys("1234567a");
 	      webDriver.findElement(By.id("js-login")).click();
 	      webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	      Assert.assertEquals(webDriver.findElement(By.linkText("退出")).getText(), "退出");
+	      AssertJUnit.assertEquals(webDriver.findElement(By.linkText("退出")).getText(), "退出");
 	      System.out.println("我执行到这里了！！！");
 	      webDriver.findElement(By.linkText("退出")).click();
 	      webDriver.close();

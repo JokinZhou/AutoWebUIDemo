@@ -14,17 +14,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * @author jokin
- *把所有的web操作方法等集成封装到这来，selenium原生web操作和开源的特殊操作方式
+ *1、把所有的web操作方法等集成封装到这来，selenium原生web操作和开源的特殊操作方式
  *（目前用来是给actionFactory来调用具体执行具体的测试操作，也可在单个独立testcase里面调用）
- *selenium的三种等待方式待封装进来
+ *2、selenium的三种等待方式待封装进来
+ *
+ *3、切换到最新窗口
+ *4、切换到新的同一个页面新的frame
  *
  */
 public class WebActionUtil {
+	
+	
+	
 	/**
-	 * 
 	 * @param driver 
-	 * @param pathType  表示的是定位的方式    id,name,className,tagName,linkText,Xpath,cssSelector
-	 * @param pathValue
+	 * @param locationType  表示的是定位的方式    id,name,className,tagName,linkText,Xpath,cssSelector             
+	 * @param locationValue 
 	 * @return
 	 */
 	public static WebElement findViewTool(WebDriver driver,String locationStyle, final String locationValue){
@@ -99,6 +104,37 @@ public class WebActionUtil {
                 driver= driver.switchTo().window(temhandle);   
              
         }
+		return driver;
+	}
+	
+	/**
+	 * 当定位frame标签里面的元素获取不到时 切换到同一个页面的frame里面
+	 * @param driver
+	 * @param nameOrId    使用该frame标签的di或者是name属性作为参数
+	 * @return
+	 */
+	public static WebDriver swhitchFrame(WebDriver driver ,String nameOrId){
+		driver.switchTo().frame("nameOrId");
+		return driver;
+	}
+	/**
+	 * 当定位frame标签里面的元素获取不到时 切换到同一个页面的frame里面
+	 * @param driver
+	 * @param frameElement   通过元素的8中定位方式的任意一种定位获取到元素frame标签后再转换过去
+	 * @return
+	 */
+	public static WebDriver swhitchFrame(WebDriver driver ,WebElement  frameElement){
+		driver.switchTo().frame(frameElement);
+		return driver;
+	}
+	
+	/**
+	 * 返回到上一个frame
+	 * @param driver
+	 * @return
+	 */
+	public static WebDriver swhitchDefaultFrame(WebDriver driver){
+		driver.switchTo().defaultContent();
 		return driver;
 	}
 
