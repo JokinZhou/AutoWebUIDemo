@@ -9,4 +9,9 @@
       <class name="testcase.CaseLoginTest"/>
     </classes>
   </test> <!-- Test -->
+  
+  <listeners><!--用来替换结果测试报告生成的方式 -->
+      <listener class-name="org.uncommons.reportng.HTMLReporter" />
+      <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+  </listeners>
 </suite> <!-- Suite -->

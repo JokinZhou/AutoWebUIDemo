@@ -10,22 +10,17 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
- * @author lenovo
+ * @author jokin
  *
  */
 public class BasePage {
 	
-	protected WebDriver webDriver;
-	
-
-	/**
-	 * 构造函数 初始化驱动和网站链接
-	 */
-	public BasePage() {
-		// TODO Auto-generated constructor stub    
-		
+	protected static WebDriver webDriver;
+	//初始化驱动和网站链接
+	static {
 		// 通过查找当前路径返回一个规范化路径，这样可以把工程放到不同地方执行了
 	    String driverPath = null;
 		try {
@@ -36,10 +31,21 @@ public class BasePage {
 			e.printStackTrace();
 		}
 	      System.setProperty("webdriver.chrome.driver", driverPath);
-	      webDriver = new ChromeDriver();
+	      ChromeOptions Options = new ChromeOptions();
+	      webDriver = new ChromeDriver(Options);//加上Options可以设置浏览器的启动参数； 不加的话就是默认参数
 	      webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	      webDriver.get("http://longguojz.uat1.rs.com/");
 	      webDriver.manage().window().maximize();
+	}
+	
+
+	/**
+	 * 构造函数 
+	 */
+	public BasePage() {
+		// TODO Auto-generated constructor stub    
+		
+	
 	}
 	
 	

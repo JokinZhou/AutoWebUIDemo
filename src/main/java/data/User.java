@@ -5,7 +5,7 @@ package data;
 
 /**
  * @author jokin
- *����һ��User�������������洢���û���Ϣ�������û�id��name  password
+ *定义一个User对象类型用来存储，用户信息，报告用户id，name  password
  *
  */
 public class User {

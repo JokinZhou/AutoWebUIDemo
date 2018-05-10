@@ -10,11 +10,6 @@
     <artifactId>testng</artifactId>
     <version>6.9.9</version>
   </dependency>
-<!--   <dependency>     用来生产报告的
-    <groupId>org.uncommons</groupId>
-    <artifactId>reportng</artifactId>
-    <version>1.2.3-SNAPSHOT</version>
-  </dependency> -->
 
   <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
@@ -41,6 +36,15 @@
     <artifactId>dom4j</artifactId>
     <version>1.6.1</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+<dependency>
+    <groupId>org.uncommons</groupId>
+    <artifactId>reportng</artifactId>
+    <version>1.1.4</version>
+    <scope>test</scope>
+</dependency>
+
 
   </dependencies>
 </project>

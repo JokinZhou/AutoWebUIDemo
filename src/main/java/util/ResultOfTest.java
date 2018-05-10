@@ -3,9 +3,10 @@
  */
 package util;
 
+
 /**
- * @author zhouyiqing
- * ��װԤ�ڽ����ʵ�ʽ���ȶԺ�ģ����ս�����ں�������Ա������caseNO ��result
+ * @author jokin
+ * 封装预期结果和实际结果比对后的，最终结果：内涵两个成员变量，caseNO 和result
  *
  */
 public class ResultOfTest {
@@ -41,3 +42,4 @@ public class ResultOfTest {
 	
 
 }
+

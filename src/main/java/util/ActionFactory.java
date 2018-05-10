@@ -9,8 +9,6 @@ import org.openqa.selenium.WebElement;
 /**
  * @author jokin
  * 封装读取excel等测试用例数据操作数据后，应该做操作
- * input��click��clearText��longPress��swipeToLift��swipeToRight��swipeToTop��swipeToDown
- * clickListboxItem��switchNativeOrWeb
  *
  */
 public class ActionFactory {

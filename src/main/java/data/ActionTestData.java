@@ -5,20 +5,20 @@ package data;
 
 /**
  * @author jokin
- *����һ�����������࣬������Ų�������
+ *创建一个测试数据类，用来存放测试数据
  *
  */
 public class ActionTestData {
-	private String sheetName;//sheet������
-	private String caseNo =null;//�������
-	private String action =null;//��������
-	private String locationStyle=null;//��λ��ʽ
-	private String locationValue=null;//��λֵ
-	private String actionValue=null;//����ֵ
-	private String expectationStyle=null;//Ԥ�ڵ��жϷ�ʽ(�磺����text�жϡ�  Acitvity�жϵ�)
+	private String sheetName;//sheet的名字
+	private String caseNo =null;//用例标号
+	private String action =null;//操作动作
+	private String locationStyle=null;//定位方式
+	private String locationValue=null;//定位值
+	private String actionValue=null;//操作值
+	private String expectationStyle=null;//预期的判断方式(如：文字text判断、  Acitvity判断等)
 	private String expectationLocationStyle=null;
 	private String expectationLocationValue=null;
-	private String expectation=null;//Ԥ�ڽ��
+	private String expectation=null;//预期结果
 	
 	/**
 	 * @return the sheetName

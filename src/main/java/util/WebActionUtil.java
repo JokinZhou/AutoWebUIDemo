@@ -3,13 +3,12 @@
  */
 package util;
 
-import java.util.List;
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 /**
@@ -137,6 +136,64 @@ public class WebActionUtil {
 		driver.switchTo().defaultContent();
 		return driver;
 	}
+	
+	/**
+	 * input类型的上传文件操作功能
+	 * @param driver
+	 * @param FilePath
+	 * @param uploadElementName
+	 */
+	public static  void fileUpload(WebDriver driver ,String FilePath ,String uploadElementName){
+		
+		//File file = new File("C:\\Users\\happy\\Desktop\\FileUpload.rar");
+		//File file = new File(FilePath);
+        // 用java来实现文件读取功 \
+        //driver.get(file.getAbsolutePath());
+        // 通过name属性后期到获取文件上传文半框位置，将文件的地址文本写入到该框
+        driver.findElement(By.name(uploadElementName)).sendKeys(FilePath);
+	}
+	/**
+	 * 通过元素name属性判断界面元素是否存在
+	 * @param driver
+	 * @param ElementName
+	 * @return
+	 */
+	public static boolean ElementExistByName(WebDriver driver , String ElementName){
 
+		try{
+		   
+		    return true;
+		}catch(org.openqa.selenium.NoSuchElementException ex){
+			return false;
+        }
+	}
+	
+	/**
+	 * 通过元素name属性判断界面元素是否存在
+	 * @param driver
+	 * @param Element
+	 * @return
+	 */
+	public static boolean ElementExist(WebDriver driver , String locationStyle,String Element){
+
+		try{
+			//
+			switch(locationStyle){//switch 在jar1.7版本开始支持参数是非整型，之前版本只能是整型
+			case "id" :driver.findElement(By.id(Element));
+			break;
+			case "name":driver.findElement(By.name(Element));
+			break;
+			case "linkText":driver.findElement(By.name(Element));
+			break;
+			
+			default: System.out.println("判断元素是否存在的定位方式在封装的方法中没有");
+			}
+		   
+		    return true;
+		}catch(org.openqa.selenium.NoSuchElementException ex){
+			//try里面抛出元素查找失败的时候返回false
+			return false;
+        }
+	}
 
 }

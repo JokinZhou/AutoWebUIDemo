@@ -4,11 +4,12 @@
 package page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * @author lenovo
+ * @author jokin
  *封装login页面的所有节目元素的获取
  */
 public class LoginPage extends BasePage {
@@ -24,10 +25,16 @@ public class LoginPage extends BasePage {
 	public LoginPage() {
 		// TODO Auto-generated constructor stub
 		webDriver= super.webDriver;
-		webDriver.findElement(By.id("username"));
-		useNameInput = webDriver.findElement(By.id("username"));
-		passwordInput = webDriver.findElement(By.id("password"));
-		loginButton = webDriver.findElement(By.id("js-login"));
+		try{
+			useNameInput = webDriver.findElement(By.id("username"));
+			passwordInput = webDriver.findElement(By.id("password"));
+			loginButton = webDriver.findElement(By.id("js-login"));	
+		}catch (NoSuchElementException e){
+			// TODO Auto-generated catch block
+			System.out.println("登录页面获取元素失败！！！");
+			e.printStackTrace();
+		}
+		
 	}
 
 	
