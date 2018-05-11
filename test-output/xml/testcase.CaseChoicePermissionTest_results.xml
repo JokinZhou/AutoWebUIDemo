@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="8.433">
+           time="22.917">
   <properties />
   
   
-            <testcase name="TestDome" time="8.433" classname="testcase.LongguoLoginTest" />
+            <testcase name="choicePermissionTest" time="22.917" classname="testcase.CaseChoicePermissionTest" />
       
 </testsuite>

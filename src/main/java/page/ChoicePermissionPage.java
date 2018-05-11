@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
  * @author jokin
  *
  */
-public class ChoicePermissionPage extends BasePage {
+public class ChoicePermissionPage{
 	
 	WebElement ChoiceCompany;
 	WebElement ChoiceDesiner;
@@ -21,9 +21,9 @@ public class ChoicePermissionPage extends BasePage {
 	/**
 	 * 
 	 */
-	public ChoicePermissionPage(){
+	public ChoicePermissionPage(WebDriver webDriver){
 		// TODO Auto-generated constructor stub
-		webDriver= super.webDriver;
+		this.webDriver= webDriver;
 		
 		try {
 			ChoiceCompany = webDriver.findElement(By.linkText("进入公司"));

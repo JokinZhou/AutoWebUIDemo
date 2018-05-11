@@ -14,13 +14,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * @author jokin
- *
+ *初始化ChromeDriver，窗口及网站链接
  */
-public class BasePage {
+public class ChromeInit {
 	
-	protected static WebDriver webDriver;
+	protected WebDriver webDriver;
 	//初始化驱动和网站链接
-	static {
+	/**
+	 * 构造函数 
+	 */
+	public ChromeInit() {
+		// TODO Auto-generated constructor stub    
 		// 通过查找当前路径返回一个规范化路径，这样可以把工程放到不同地方执行了
 	    String driverPath = null;
 		try {
@@ -36,17 +40,15 @@ public class BasePage {
 	      webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	      webDriver.get("http://longguojz.uat1.rs.com/");
 	      webDriver.manage().window().maximize();
-	}
-	
-
-	/**
-	 * 构造函数 
-	 */
-	public BasePage() {
-		// TODO Auto-generated constructor stub    
-		
 	
 	}
+	public WebDriver getWebDriver() {
+		return webDriver;
+	}
+	public void setWebDriver(WebDriver webDriver) {
+		this.webDriver = webDriver;
+	}
+	
 	
 	
 }

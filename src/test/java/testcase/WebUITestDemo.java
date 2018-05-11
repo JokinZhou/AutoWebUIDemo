@@ -2,6 +2,7 @@ package testcase;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +15,8 @@ import org.testng.annotations.Test;
 import util.WebActionUtil;
 
 public class WebUITestDemo {
-  @Test
+ // @Test(timeOut=5000)
+  @Test(enabled = false)
   public void TestDome() throws IOException {
 	  // 通过查找当前路径返回一个规范化路径，这样可以把工程放到不同地方执行了
 	    String driverPath = new File("./").getCanonicalPath() + "/src/main/resources/chromedriver.exe";

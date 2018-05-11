@@ -1,51 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="47" started-at="2018-05-10T09:15:20Z" finished-at="2018-05-10T09:15:20Z">
+  <suite name="Suite" duration-ms="22940" started-at="2018-05-11T12:57:56Z" finished-at="2018-05-11T12:58:19Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="47" started-at="2018-05-10T09:15:20Z" finished-at="2018-05-10T09:15:20Z">
-      <class name="testcase.TestOther">
-        <test-method status="PASS" signature="divisionWithException()[pri:0, instance:testcase.TestOther@7d907bac]" name="divisionWithException" duration-ms="14" started-at="2018-05-10T17:15:20Z" finished-at="2018-05-10T17:15:20Z">
-          <exception class="java.lang.ArithmeticException">
-            <message>
-              <![CDATA[/ by zero]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.ArithmeticException: / by zero
-	at testcase.TestOther.divisionWithException(TestOther.java:8)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.ArithmeticException -->
+    <test name="Test" duration-ms="22940" started-at="2018-05-11T12:57:56Z" finished-at="2018-05-11T12:58:19Z">
+      <class name="testcase.CaseCompanyInfoTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseCompanyInfoTest@79be0360]" name="beforeClass" is-config="true" duration-ms="8" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:57:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- divisionWithException -->
-      </class> <!-- testcase.TestOther -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@79be0360]" name="f" duration-ms="10006" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseCompanyInfoTest@79be0360]" name="afterClass" is-config="true" duration-ms="2" started-at="2018-05-11T20:58:06Z" finished-at="2018-05-11T20:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testcase.CaseCompanyInfoTest -->
+      <class name="testcase.CaseLoginTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseLoginTest@57855c9a]" name="beforeClass" is-config="true" duration-ms="3" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:57:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:testcase.CaseLoginTest@57855c9a]" name="loginTest" duration-ms="15606" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:58:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="signOutTest()[pri:0, instance:testcase.CaseLoginTest@57855c9a]" name="signOutTest" duration-ms="1" started-at="2018-05-11T20:58:05Z" finished-at="2018-05-11T20:58:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signOutTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseLoginTest@57855c9a]" name="afterClass" is-config="true" duration-ms="1" started-at="2018-05-11T20:58:12Z" finished-at="2018-05-11T20:58:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testcase.CaseLoginTest -->
+      <class name="testcase.LongguoLoginTest">
+        <test-method status="PASS" signature="TestDome()[pri:0, instance:testcase.LongguoLoginTest@22a67b4]" name="TestDome" duration-ms="8433" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:58:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestDome -->
+      </class> <!-- testcase.LongguoLoginTest -->
+      <class name="testcase.CaseChoicePermissionTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseChoicePermissionTest@6321e813]" name="beforeClass" is-config="true" duration-ms="8" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:57:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="choicePermissionTest()[pri:0, instance:testcase.CaseChoicePermissionTest@6321e813]" name="choicePermissionTest" duration-ms="22917" started-at="2018-05-11T20:57:56Z" finished-at="2018-05-11T20:58:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- choicePermissionTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseChoicePermissionTest@6321e813]" name="afterClass" is-config="true" duration-ms="0" started-at="2018-05-11T20:58:19Z" finished-at="2018-05-11T20:58:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testcase.CaseChoicePermissionTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

@@ -1,5 +1,9 @@
 package testcase;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,7 +12,7 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
-import page.BasePage;
+import page.ChromeInit;
 import page.LoginPage;
 
 import org.testng.annotations.BeforeClass;
@@ -25,15 +29,21 @@ import org.testng.annotations.AfterClass;
 public class CaseLoginTest {
   @Test
   public void loginTest() {
-	  LoginPage lp =new LoginPage();
+	  ChromeInit CI = new ChromeInit();
+	  WebDriver wd1 = CI.getWebDriver();
+	  LoginPage lp =new LoginPage(wd1);
 	   WebDriver webDriver=lp.getWebDriver();
-	  lp.getUseNameInput().sendKeys("17500000006");
-	  lp.getPasswordInput().sendKeys("1234567a");
-	  lp.getLoginButton().click();
+	   lp.LoginSite("17500000004", "1234567a");
+	  try {
+		  Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	  webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
       AssertJUnit.assertEquals(webDriver.findElement(By.linkText("退出")).getText(), "退出");
       
-	  lp.getWebDriver().close();
+	  webDriver.close();
   }
   @Test
   public void signOutTest(){

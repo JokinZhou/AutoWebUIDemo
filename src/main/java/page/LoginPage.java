@@ -10,9 +10,9 @@ import org.openqa.selenium.WebElement;
 
 /**
  * @author jokin
- *封装login页面的所有节目元素的获取
+ *封装login页面的所有节目元素的获取 和业务动作
  */
-public class LoginPage extends BasePage {
+public class LoginPage {
 	
 	WebElement useNameInput;
 	WebElement passwordInput;
@@ -22,9 +22,9 @@ public class LoginPage extends BasePage {
 	/**
 	 * 构造方法，初始化获取该页面的所有节目元素
 	 */
-	public LoginPage() {
+	public LoginPage(WebDriver webDriver) {
 		// TODO Auto-generated constructor stub
-		webDriver= super.webDriver;
+		this.webDriver= webDriver;
 		try{
 			useNameInput = webDriver.findElement(By.id("username"));
 			passwordInput = webDriver.findElement(By.id("password"));
@@ -36,9 +36,22 @@ public class LoginPage extends BasePage {
 		}
 		
 	}
+	
+	
+	public void LoginSite(String useName,String password){
+		
+		LoginPage lp =new LoginPage(webDriver);
+		lp.getUseNameInput().sendKeys(useName);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		lp.getPasswordInput().sendKeys(password);
+		lp.getLoginButton().click();
+	}
 
-	
-	
 	public WebDriver getWebDriver() {
 		return webDriver;
 	}
