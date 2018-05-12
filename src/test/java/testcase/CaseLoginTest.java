@@ -41,6 +41,7 @@ public class CaseLoginTest {
 		e.printStackTrace();
 	}
 	  webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  //调用testng中AssertJUnit类中的判断方法进行判断验证
       AssertJUnit.assertEquals(webDriver.findElement(By.linkText("退出")).getText(), "退出");
       
 	  webDriver.close();

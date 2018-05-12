@@ -119,7 +119,7 @@ public class WebActionUtil {
 	/**
 	 * 当定位frame标签里面的元素获取不到时 切换到同一个页面的frame里面
 	 * @param driver
-	 * @param frameElement   通过元素的8中定位方式的任意一种定位获取到元素frame标签后再转换过去
+	 * @param frameElement   索引等方式获取到元素frame标签后再转换过去
 	 * @return
 	 */
 	public static WebDriver swhitchFrame(WebDriver driver ,WebElement  frameElement){
@@ -185,10 +185,8 @@ public class WebActionUtil {
 			break;
 			case "linkText":driver.findElement(By.name(Element));
 			break;
-			
 			default: System.out.println("判断元素是否存在的定位方式在封装的方法中没有");
 			}
-		   
 		    return true;
 		}catch(org.openqa.selenium.NoSuchElementException ex){
 			//try里面抛出元素查找失败的时候返回false
