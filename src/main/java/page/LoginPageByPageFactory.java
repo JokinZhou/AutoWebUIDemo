@@ -3,40 +3,36 @@
  */
 package page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * @author jokin
  *封装login页面的所有节目元素的获取 和业务动作
  */
-public class LoginPage {
+public class LoginPageByPageFactory {
 	
-	WebElement useNameInput;
+	@FindBy(id="username")
+	WebElement useNameInput;//使用此注释，调用PageFactory类里的静态方法initElements去初始化界面元素
+	
+	@FindBy(id="password")
 	WebElement passwordInput;
+	
+	@FindBy(id="js-login")
 	WebElement loginButton;
+	
 	WebDriver webDriver;
 
-	/**
+/*	*//**
 	 * 构造方法，初始化获取该页面的所有节目元素
-	 */
-	public LoginPage(WebDriver webDriver) {
+	 *//*
+	public LoginPageByPageFactory(WebDriver webDriver) {
 		// TODO Auto-generated constructor stub
 		this.webDriver= webDriver;
-		try{
-			useNameInput = webDriver.findElement(By.id("username"));
-			passwordInput = webDriver.findElement(By.id("password"));
-			loginButton = webDriver.findElement(By.id("js-login"));	
-		}catch (NoSuchElementException e){
-			// TODO Auto-generated catch block
-			System.out.println("登录页面获取元素失败！！！");
-			e.printStackTrace();
-		}
 		
 	}
-	
+	*/
 	
 	public void LoginSite(String useName,String password){
 		
@@ -57,11 +53,11 @@ public class LoginPage {
 
 
 
-	public void setWebDriver(WebDriver webDriver) {
+/*	public void setWebDriver(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
 
-
+*/
 
 	public WebElement getUseNameInput() {
 		return useNameInput;

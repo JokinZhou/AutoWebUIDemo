@@ -38,8 +38,8 @@ public class ChromeInit {
 	      ChromeOptions Options = new ChromeOptions();
 	      webDriver = new ChromeDriver(Options);//加上Options可以设置浏览器的启动参数； 不加的话就是默认参数
 	      webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	      webDriver.get("http://longguojz.uat1.rs.com/");
-	      webDriver.manage().window().maximize();
+/*	      webDriver.get("http://longguojz.uat1.rs.com/");
+	      webDriver.manage().window().maximize();*/
 	
 	}
 	public WebDriver getWebDriver() {
