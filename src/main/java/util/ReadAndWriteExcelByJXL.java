@@ -34,19 +34,23 @@ public class ReadAndWriteExcelByJXL {
 	public ReadAndWriteExcelByJXL(){
 		
 	}
-	/**
+    /**
+     * 
+	 * 
 	 * 目前是直接把整个excel表格中的所有sheet中的数据都读取然后封装到一个集合里
 	 * 创建一个静态类方法，实现从excel表格中读取数(静态类方法只能调该类的静态成员变量)
 	 * 当单元格为空时，使用getContents()获取到的结果是""
-	 * @throws IOException 
-	 * @throws BiffException 
-	 */
-	public static List<ActionTestData> getData(File dataExcel) throws BiffException, IOException {
+     * @param dataExcel
+     * @return   返回值为数组， 方便testng 的 dataProvider调用(testng的dataPrivider需要数组或者map等类型)
+     * @throws BiffException
+     * @throws IOException
+     */
+	public static String[][] getData(File dataExcel) throws BiffException, IOException {
 		// TODO Auto-generated constructor stub
 		//File dataExcel = new File("g:\\data");
 		Sheet s =null;
 		String sheetName = null;
-		List<ActionTestData> appData=null;//用完要存放的数据为 对象，所以创建一个list列表ss
+		String[][] testData=null;//对一个一个字符串类型的二维数组
 		Workbook  wb = null;
 			wb =Workbook.getWorkbook(dataExcel);
 			//获得改excel所有的sheet
@@ -54,7 +58,6 @@ public class ReadAndWriteExcelByJXL {
 			int sheetnumber= wb.getNumberOfSheets();
 			//for-each方法获取所有的sheet中的数据
 			for(Sheet  sheetObj:sheets ){
-				
 				sheetName = sheetObj.getName();
 				//获取该excel的第一个表格中数据的行数
 				int length = s.getRows();//getRowHeight(int)方法的是获取行高； 而getRows()方法是获取行数
@@ -64,44 +67,22 @@ public class ReadAndWriteExcelByJXL {
 					realLength++;//可以在加个判断，让real不能大于length
 				}
 				//注意要在while 的语句中     加入跳出循环条件 否则while 自身就会无限循环了
-				appData = new ArrayList<ActionTestData>();
 				ActionTestData actionTestData = null;//new TestData();
 				for(int i=1;i<realLength;i++){
 					//从第二行开始获取数据，因为第一行是标题    行  length
 					actionTestData = new ActionTestData();
 					actionTestData.setSheetName(sheetName);
-					for(int j=0;j<s.getColumns();j++){//getCell(int ,int) 两个参数是前列 后行
-						//似乎只在获取行的时候多余了在获取列的时候并没有多余
-							if(j==0){//可以用那个 switch(表达式){case 常量表达式1: }
-								actionTestData.setCaseNo(s.getCell(j, i).getContents());//将第一列的参数复制到data数组里
-							}else if(j==1){
-								/*String a =s.getCell(j, i).getContents();*/
-								actionTestData.setAction(s.getCell(j, i).getContents());
-							}else if(j==2){
-								actionTestData.setLocationStyle(s.getCell(j, i).getContents());
-							}else if(j==3){
-								actionTestData.setLocationValue(s.getCell(j, i).getContents());
-							}else if(j==4){
-								actionTestData.setActionValue((s.getCell(j, i).getContents()));
-							}else if(j==5){
-								actionTestData.setExpectationStyle(s.getCell(j, i).getContents());
-							}else if(j==6){
-								actionTestData.setExpectationLocationStyle(s.getCell(j, i).getContents());
-							}else if(j==7){
-								actionTestData.setExpectationLocationValue(s.getCell(j, i).getContents());
-							}else if(j==8){
-								actionTestData.setExpectation(s.getCell(j, i).getContents());
-							}
-						}
-					
-					appData.add(actionTestData);//每一行新增一个TestData数据对象
+					for(int j=0;j<s.getColumns();j++){
+						testData[j][i]=s.getCell(j, i).getContents();
+						System.out.println("EXCEL表测试数据第"+j+"列，第"+i+"行的数据是："+ testData);
+					}
 				}
 			}
 		if(wb!=null){
 			wb.close();//读取完，关闭workbook工作簿对象
 		}
 		
-		return appData;
+		return testData;
 
 	}
 	/**
