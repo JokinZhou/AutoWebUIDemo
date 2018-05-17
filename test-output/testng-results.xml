@@ -2,16 +2,16 @@
 <testng-results skipped="2" failed="1" total="7" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="30076" started-at="2018-05-17T11:18:14Z" finished-at="2018-05-17T11:18:44Z">
+  <suite name="Suite" duration-ms="30100" started-at="2018-05-17T11:59:38Z" finished-at="2018-05-17T12:00:08Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="30076" started-at="2018-05-17T11:18:14Z" finished-at="2018-05-17T11:18:44Z">
+    <test name="Test" duration-ms="30100" started-at="2018-05-17T11:59:38Z" finished-at="2018-05-17T12:00:08Z">
       <class name="testcase.CaseCompanyInfoTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="beforeClass" is-config="true" duration-ms="12" started-at="2018-05-17T19:18:14Z" finished-at="2018-05-17T19:18:14Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="beforeClass" is-config="true" duration-ms="31" started-at="2018-05-17T19:59:38Z" finished-at="2018-05-17T19:59:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="SKIP" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="f" duration-ms="10012" started-at="2018-05-17T19:18:14Z" finished-at="2018-05-17T19:18:24Z">
+        <test-method status="SKIP" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="f" duration-ms="10009" started-at="2018-05-17T19:59:38Z" finished-at="2018-05-17T19:59:48Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [false] but found [true]]]>
@@ -43,7 +43,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="SKIP" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="f" duration-ms="10007" started-at="2018-05-17T19:18:24Z" finished-at="2018-05-17T19:18:34Z">
+        <test-method status="SKIP" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="f" duration-ms="10025" started-at="2018-05-17T19:59:48Z" finished-at="2018-05-17T19:59:58Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [false] but found [true]]]>
@@ -75,7 +75,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="FAIL" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="f" duration-ms="10003" started-at="2018-05-17T19:18:34Z" finished-at="2018-05-17T19:18:44Z">
+        <test-method status="FAIL" signature="f()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="f" duration-ms="10003" started-at="2018-05-17T19:59:58Z" finished-at="2018-05-17T20:00:08Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [false] but found [true]]]>
@@ -107,45 +107,45 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="afterClass" is-config="true" duration-ms="0" started-at="2018-05-17T19:18:44Z" finished-at="2018-05-17T19:18:44Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseCompanyInfoTest@685cb137]" name="afterClass" is-config="true" duration-ms="1" started-at="2018-05-17T20:00:08Z" finished-at="2018-05-17T20:00:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- testcase.CaseCompanyInfoTest -->
       <class name="testcase.CaseLoginTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="beforeClass" is-config="true" duration-ms="6719" started-at="2018-05-17T19:18:14Z" finished-at="2018-05-17T19:18:21Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="beforeClass" is-config="true" duration-ms="7062" started-at="2018-05-17T19:59:38Z" finished-at="2018-05-17T19:59:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="loginTest()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="loginTest" duration-ms="8403" started-at="2018-05-17T19:18:21Z" finished-at="2018-05-17T19:18:29Z">
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="loginTest" duration-ms="8412" started-at="2018-05-17T19:59:45Z" finished-at="2018-05-17T19:59:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="signOutTest()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="signOutTest" duration-ms="6" started-at="2018-05-17T19:18:21Z" finished-at="2018-05-17T19:18:21Z">
+        <test-method status="PASS" signature="signOutTest()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="signOutTest" duration-ms="3" started-at="2018-05-17T19:59:45Z" finished-at="2018-05-17T19:59:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signOutTest -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="afterClass" is-config="true" duration-ms="2316" started-at="2018-05-17T19:18:29Z" finished-at="2018-05-17T19:18:31Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseLoginTest@7cd62f43]" name="afterClass" is-config="true" duration-ms="64" started-at="2018-05-17T19:59:53Z" finished-at="2018-05-17T19:59:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- testcase.CaseLoginTest -->
       <class name="testcase.LongguoLoginTest">
-        <test-method status="PASS" signature="TestDome()[pri:0, instance:testcase.LongguoLoginTest@6a41eaa2]" name="TestDome" duration-ms="5641" started-at="2018-05-17T19:18:14Z" finished-at="2018-05-17T19:18:20Z">
+        <test-method status="PASS" signature="TestDome()[pri:0, instance:testcase.LongguoLoginTest@6a41eaa2]" name="TestDome" duration-ms="5875" started-at="2018-05-17T19:59:38Z" finished-at="2018-05-17T19:59:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestDome -->
       </class> <!-- testcase.LongguoLoginTest -->
       <class name="testcase.CaseChoicePermissionTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseChoicePermissionTest@6a4f787b]" name="beforeClass" is-config="true" duration-ms="6573" started-at="2018-05-17T19:18:14Z" finished-at="2018-05-17T19:18:21Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcase.CaseChoicePermissionTest@6a4f787b]" name="beforeClass" is-config="true" duration-ms="6382" started-at="2018-05-17T19:59:38Z" finished-at="2018-05-17T19:59:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="choicePermissionTest()[pri:0, instance:testcase.CaseChoicePermissionTest@6a4f787b]" name="choicePermissionTest" duration-ms="16510" started-at="2018-05-17T19:18:21Z" finished-at="2018-05-17T19:18:37Z">
+        <test-method status="PASS" signature="choicePermissionTest()[pri:0, instance:testcase.CaseChoicePermissionTest@6a4f787b]" name="choicePermissionTest" duration-ms="16005" started-at="2018-05-17T19:59:44Z" finished-at="2018-05-17T20:00:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- choicePermissionTest -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseChoicePermissionTest@6a4f787b]" name="afterClass" is-config="true" duration-ms="53" started-at="2018-05-17T19:18:37Z" finished-at="2018-05-17T19:18:37Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcase.CaseChoicePermissionTest@6a4f787b]" name="afterClass" is-config="true" duration-ms="46" started-at="2018-05-17T20:00:00Z" finished-at="2018-05-17T20:00:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
