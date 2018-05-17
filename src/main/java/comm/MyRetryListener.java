@@ -27,8 +27,8 @@ public class MyRetryListener implements IAnnotationTransformer {
             iTestAnnotation.setRetryAnalyzer(MyRetry.class);  
         }
         
-        if("testMethodName".equals(method.getName())){
+/*        if("testMethodName".equals(method.getName())){
         	iTestAnnotation.setInvocationCount(3);//设置到@Test注释的方法的名字是testMethodName时就跑3次
-        }
+        }*/
     }  
 } 

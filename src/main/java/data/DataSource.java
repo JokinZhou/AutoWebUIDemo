@@ -1,7 +1,7 @@
 /**
  * 
  */
-package excel;
+package data;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 
 import comm.CONST;
+import fileUtil.ExcelData;
 
 /**
  * @author lenovo

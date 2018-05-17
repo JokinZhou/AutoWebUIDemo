@@ -1,7 +1,7 @@
 /**
  * 
  */
-package util;
+package fileUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,6 +20,7 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
+import util.ResultOfTest;
 
 /**
  * @author jokin
