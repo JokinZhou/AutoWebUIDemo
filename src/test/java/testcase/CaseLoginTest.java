@@ -13,6 +13,11 @@ import org.testng.annotations.Test;
 import page.ChromeInit;
 import page.LoginPageByPageFactory;
 
+/**
+ * 调用PageFactory类里的静态方法initElements去初始化界面元素
+ * @author lenovo
+ *
+ */
 public class CaseLoginTest {
 	
   protected ChromeInit CI;

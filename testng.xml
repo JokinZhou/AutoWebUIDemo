@@ -11,8 +11,12 @@
     </classes>
   </test> <!-- Test -->
   
-  <listeners><!--用来替换结果测试报告生成的方式 -->
+  <listeners><!--添加监听器  用来替换结果测试报告生成的方式 -->
       <listener class-name="org.uncommons.reportng.HTMLReporter" />
       <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
   </listeners>
+  <!--添加监听器   用来监听失败的重跑 -->
+    <listeners>  
+        <listener class-name="comm.MyRetryListener"/>  
+    </listeners>  
 </suite> <!-- Suite -->

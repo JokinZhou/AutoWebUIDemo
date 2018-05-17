@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
  * @author jokin
  *封装login页面的所有节目元素的获取 和业务动作
  */
-public class LoginPageByPageFactory {
+public class LoginPageByPageFactory extends BasePage {
 	
 	@FindBy(id="username")
 	WebElement useNameInput;//使用此注释，调用PageFactory类里的静态方法initElements去初始化界面元素
@@ -24,15 +24,17 @@ public class LoginPageByPageFactory {
 	
 	WebDriver webDriver;
 
-/*	*//**
-	 * 构造方法，初始化获取该页面的所有节目元素
-	 *//*
+   /**
+    * 父类的构造函数是有参的， 那么子类也必须明文 申明构造方法
+    * @param webDriver
+    */
 	public LoginPageByPageFactory(WebDriver webDriver) {
 		// TODO Auto-generated constructor stub
+		super(webDriver);
 		this.webDriver= webDriver;
 		
 	}
-	*/
+	
 	
 	public void LoginSite(String useName,String password){
 		

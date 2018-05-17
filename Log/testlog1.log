@@ -1,0 +1,6 @@
+2018-05-17 19:05:40,028 [pool-1-thread-4] INFO baidu - 启动浏览器
+2018-05-17 19:05:40,043 [pool-1-thread-1] INFO baidu - 启动浏览器
+2018-05-17 19:06:02,648 [pool-1-thread-1] INFO http://longguojz.uat1.rs.com/sysV2/applyForCompany - 执行成功了
+2018-05-17 19:18:14,554 [pool-1-thread-1] INFO baidu - 启动浏览器
+2018-05-17 19:18:14,569 [pool-1-thread-4] INFO baidu - 启动浏览器
+2018-05-17 19:18:37,523 [pool-1-thread-1] INFO http://longguojz.uat1.rs.com/sysV2/applyForCompany - 执行成功了

@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
  * @author jokin
  *封装login页面的所有节目元素的获取 和业务动作
  */
-public class LoginPage {
+public class LoginPage extends BasePage{
 	
 	WebElement useNameInput;
 	WebElement passwordInput;
@@ -24,6 +24,7 @@ public class LoginPage {
 	 */
 	public LoginPage(WebDriver webDriver) {
 		// TODO Auto-generated constructor stub
+		super(webDriver);
 		this.webDriver= webDriver;
 		try{
 			useNameInput = webDriver.findElement(By.id("username"));

@@ -5,15 +5,37 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import comm.Log4jUtil;
 import page.ChoicePermissionPage;
 import page.ChromeInit;
 import page.LoginPage;
 
 public class CaseChoicePermissionTest {
+	  protected ChromeInit CI;
+	  protected WebDriver wd;
+	  @BeforeClass
+	  public void beforeClass() {
+		  CI = new ChromeInit();
+		  wd =CI.getWebDriver();
+		  wd.manage().window().maximize();
+		  wd.get("http://longguojz.uat1.rs.com/");
+		  
+		  try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+	       
+	  }
+
+	  @AfterClass
+	  public void afterClass() {
+		  wd.close();
+	  }
+	  
   @Test
   public void choicePermissionTest() throws InterruptedException {
-	  ChromeInit CI = new ChromeInit();
-	  WebDriver wd = CI.getWebDriver();
 	  LoginPage  login= new LoginPage(wd);
 	  login.LoginSite("17500000004", "1234567a");
 	  ChoicePermissionPage cp= new ChoicePermissionPage(wd);
@@ -21,14 +43,9 @@ public class CaseChoicePermissionTest {
 		  cp.getChoiceCompany().click();
 	  }
 	  Thread.sleep(10000);
-	  cp.getWebDriver().close();
-  }
-  @BeforeClass
-  public void beforeClass() {
-  }
-
-  @AfterClass
-  public void afterClass() {
+	  System.out.println(cp.getCurrentPageTitle());
+	  Log4jUtil log =new Log4jUtil(cp.getCurrentPageUrl());
+	  log.logger.info("执行成功了");
   }
 
 }

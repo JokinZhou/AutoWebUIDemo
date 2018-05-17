@@ -7,6 +7,8 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 /**
  * @author lenovo
@@ -17,19 +19,19 @@ public class BasePage {
 	  
     public static WebDriver driver;  
     public static String pageTitle;  
-    public static String pageUrl;  
+    public static String pageUrl;
       
     /* 
      * 构造方法 
      */  
-    protected BasePage (WebDriver driver){  
+    public BasePage (WebDriver driver){  
         BasePage.driver = driver;  
     }  
       
     /* 
      * 在文本框内输入字符 
      */  
-    protected void type(WebElement element , String text){  
+    public  void type(WebElement element , String text){  
         try {  
                 if (element.isEnabled()) {  
                     element.clear();   
@@ -44,7 +46,7 @@ public class BasePage {
     /* 
      * 点击元素，这里指点击鼠标左键 
      */   
-    protected void click(WebElement element){  
+    public  void click(WebElement element){  
               
         try {  
                 if (element.isEnabled()) {  
@@ -60,7 +62,7 @@ public class BasePage {
     /* 
      * 在文本输入框执行清除操作 
      */  
-    protected void clean(WebElement element){  
+    public  void clean(WebElement element){  
               
         try {  
                 if (element.isEnabled()) {  
@@ -71,12 +73,12 @@ public class BasePage {
             	e.printStackTrace();  
             }  
               
-        }  
+        } 
       
     /* 
      * 判断一个页面元素是否显示在当前页面 
      */    
-    protected void verifyElementIsPresent(WebElement element){  
+    public  void verifyElementIsPresent(WebElement element){  
               
         try {  
                 if (element.isDisplayed()) {  
@@ -90,7 +92,7 @@ public class BasePage {
     /* 
      * 获取页面的标题 
      */  
-    protected String getCurrentPageTitle(){  
+    public String getCurrentPageTitle(){  
           
         pageTitle=driver.getTitle();    
         return pageTitle;  
@@ -99,11 +101,10 @@ public class BasePage {
     /* 
      * 获取页面的url 
      */  
-    protected String getCurrentPageUrl(){  
+    public  String getCurrentPageUrl(){  
           
         pageUrl=driver.getCurrentUrl();  
         return pageUrl;  
        }   
-     
-             
+         
 }  
