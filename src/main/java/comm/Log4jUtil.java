@@ -8,7 +8,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 /**
  * @author lenovo
- *
+ * 输出的日志在Log文件夹
  */
 public class Log4jUtil {
 	
@@ -19,7 +19,7 @@ public class Log4jUtil {
 	}
 
 	/**
-	 * 
+	 * category参数是用来区分该log日志的分类的
 	 */
 	public Log4jUtil(String category) {
 		// TODO Auto-generated constructor stub

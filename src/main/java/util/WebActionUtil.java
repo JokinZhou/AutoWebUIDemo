@@ -23,8 +23,6 @@ import org.openqa.selenium.WebElement;
  */
 public class WebActionUtil {
 	
-	
-	
 	/**
 	 * @param driver 
 	 * @param locationType  表示的是定位的方式    id,name,className,tagName,linkText,Xpath,cssSelector             
@@ -99,7 +97,7 @@ public class WebActionUtil {
         // 获取所有页面的句柄，并循环判断不是当前的句柄   
         for (String temhandle : driver.getWindowHandles()) {    
             if (!temhandle.equals(handle))    
-                //driver.close();//每次切换窗口都关闭之前的窗口，确保之后打开新窗口都能是保持只有两个窗口，使这个方法可以重复调用
+                driver.close();//每次切换窗口都关闭之前的窗口，确保之后打开新窗口都能是保持只有两个窗口，使这个方法可以重复调用
                 driver= driver.switchTo().window(temhandle);   
              
         }

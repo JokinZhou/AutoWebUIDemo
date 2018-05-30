@@ -82,7 +82,7 @@ public class DataSource {
 		int length = list.size();
 		result = new Object[length][1];
 		for(int i = 0; i < list.size(); i++){
-			result[i][0] = list.get(i);
+			result[i][0] = list.get(i);//讲list中的数据存储进result数组，存在多行一列
 		}
 		return result;
 	}

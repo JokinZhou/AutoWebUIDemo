@@ -10,7 +10,9 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import data.ActionTestData;
 import jxl.Sheet;
@@ -38,7 +40,7 @@ public class ReadAndWriteExcelByJXL {
     /**
      * 
 	 * 
-	 * 目前是直接把整个excel表格中的所有sheet中的数据都读取然后封装到一个集合里
+	 * 目前是直接把整个excel表格中的所有sheet中的数据都读取然后封装到一个数组Object[][]返回
 	 * 创建一个静态类方法，实现从excel表格中读取数(静态类方法只能调该类的静态成员变量)
 	 * 当单元格为空时，使用getContents()获取到的结果是""
      * @param dataExcel
@@ -46,36 +48,50 @@ public class ReadAndWriteExcelByJXL {
      * @throws BiffException
      * @throws IOException
      */
-	public static String[][] getData(File dataExcel) throws BiffException, IOException {
+	public static String[][] getData(File dataExcel) {
 		// TODO Auto-generated constructor stub
 		//File dataExcel = new File("g:\\data");
-		Sheet s =null;
 		String sheetName = null;
 		String[][] testData=null;//对一个一个字符串类型的二维数组
+		//Map<String,String> testdata;
 		Workbook  wb = null;
-			wb =Workbook.getWorkbook(dataExcel);
-			//获得改excel所有的sheet
+			try {
+				wb =Workbook.getWorkbook(dataExcel);
+			} catch (BiffException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//获得该excel所有的sheet
 			Sheet[] sheets =wb.getSheets();
 			int sheetnumber= wb.getNumberOfSheets();
 			//for-each方法获取所有的sheet中的数据
 			for(Sheet  sheetObj:sheets ){
 				sheetName = sheetObj.getName();
 				//获取该excel的第一个表格中数据的行数
-				int length = s.getRows();//getRowHeight(int)方法的是获取行高； 而getRows()方法是获取行数
+				int length = sheetObj.getRows();//getRowHeight(int)方法的是获取行高； 而getRows()方法是获取行数
+				int lieshu = sheetObj.getColumns();//
 				int realLength=0;
-				while(!s.getCell(0, realLength).getContents().equals("") && s. getCell(0, realLength).getContents()!= null ){//！A.equals(B)表示不相等
+				while(!sheetObj.getCell(0, realLength).getContents().equals("") && sheetObj. getCell(0, realLength).getContents()!= null ){//！A.equals(B)表示不相等
 					//使用while去筛选不是空的行列 ; 因为add的数量是根据lenth的，所以实际上还是要限制length这个值
-					realLength++;//可以在加个判断，让real不能大于length
+					if(realLength<length-1){//加这个if防止realLength过大，造成行的数组越界
+						realLength++;
+					}else{
+						break;//可以在加个判断，让realLength,获取到真实行数后跳出循环
+					}
 				}
 				//注意要在while 的语句中     加入跳出循环条件 否则while 自身就会无限循环了
-				ActionTestData actionTestData = null;//new TestData();
-				for(int i=1;i<realLength;i++){
+				//ActionTestData actionTestData = null;//new TestData();
+				//Map<String,String> testdata = new HashMap<>();
+				
+				testData = new String[length-1][lieshu];//因为第一列标题栏是不作为驱动数据的，所以返回的实际测试行数，要少一；
+				for(int i=1;i<=realLength;i++){
 					//从第二行开始获取数据，因为第一行是标题    行  length
-					actionTestData = new ActionTestData();
-					actionTestData.setSheetName(sheetName);
-					for(int j=0;j<s.getColumns();j++){
-						testData[j][i]=s.getCell(j, i).getContents();
-						System.out.println("EXCEL表测试数据第"+j+"列，第"+i+"行的数据是："+ testData);
+				/*	actionTestData = new ActionTestData();
+					actionTestData.setSheetName(sheetName);*/
+					for(int j=0;j<sheetObj.getColumns();j++){
+						//testdata.put(key, sheetObj.getCell(j, i).getContents());
+						testData[i-1][j]=sheetObj.getCell(j, i).getContents();
+						System.out.println("EXCEL表测试数据第"+i+"行，第"+j+"列的数据是："+ testData[i-1][j]);
 					}
 				}
 			}

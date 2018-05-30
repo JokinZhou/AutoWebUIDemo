@@ -7,6 +7,7 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -105,6 +106,30 @@ public class BasePage {
           
         pageUrl=driver.getCurrentUrl();  
         return pageUrl;  
-       }   
+       } 
+    /**
+     * 鼠标右键当前位置
+     */
+    public void mouseRightClick(){
+    	Actions action = new Actions(driver);  
+    	action.contextClick().build().perform();// 鼠标右键在当前停留的位置做单击操作   
+    }
+    
+    /**
+     * 鼠标右键某个元素
+     */
+    public void mouseRightClickElement(WebElement element){
+    	Actions action = new Actions(driver);  
+    	action.contextClick(element).build().perform();// 鼠标右键在当前停留的位置做单击操作   
+    }
+    
+    /**
+     * 鼠标拖拽某个元素到目标元素处
+     */
+    public void mouseDragElement(WebElement sourceElement,WebElement targetElement){
+    	Actions action = new Actions(driver);  
+    	action.clickAndHold(sourceElement).moveToElement(targetElement).perform();
+    	action.release();
+    }
          
 }  
