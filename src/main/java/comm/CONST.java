@@ -13,7 +13,7 @@ public class CONST {
 	// 存储常量，例如sql等信息
 	public static String sql = "select *  from jz_business.jz_case where id=148";
 	
-	//api的种类（是否被废弃，暂时不用等）
+/*	//api的种类（是否被废弃，暂时不用等）
 	public static final String API_ABANDONED = "被废弃";
 	public static final String API_TEMP_NOUSE = "暂时不用";
 	
@@ -40,12 +40,12 @@ public class CONST {
 	// public static final String TESTS_ENV_AT = "testsEnvAT";
 	public static final String PARAMETER_TYPE_AT = "parameterTypeAT";
 	public static String RESPONSE_BODY = "responseBody";
-
+*/
 	// 定义异常返回或返回文件等时的验证
 	public static final String IMAGE = "IMAGE";
 
 	// 存储providerData的名称
-	public static final String PROVIDER_DATA = "providerData";
+	public static final String PROVIDER_DATA = "testData";
 
 
 	/**

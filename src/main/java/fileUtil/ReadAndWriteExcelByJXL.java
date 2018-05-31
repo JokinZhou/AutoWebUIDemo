@@ -8,13 +8,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import data.ActionTestData;
+import org.testng.Assert;
+import comm.Log4jUtil;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -40,7 +37,7 @@ public class ReadAndWriteExcelByJXL {
     /**
      * 
 	 * 
-	 * 目前是直接把整个excel表格中的所有sheet中的数据都读取然后封装到一个数组Object[][]返回
+	 * 目前是直接把整个excel表格中的第一个sheet中的数据都读取然后封装到一个数组Object[][]返回
 	 * 创建一个静态类方法，实现从excel表格中读取数(静态类方法只能调该类的静态成员变量)
 	 * 当单元格为空时，使用getContents()获取到的结果是""
      * @param dataExcel
@@ -51,7 +48,7 @@ public class ReadAndWriteExcelByJXL {
 	public static String[][] getData(File dataExcel) {
 		// TODO Auto-generated constructor stub
 		//File dataExcel = new File("g:\\data");
-		String sheetName = null;
+		//String sheetName = null;
 		String[][] testData=null;//对一个一个字符串类型的二维数组
 		//Map<String,String> testdata;
 		Workbook  wb = null;
@@ -66,7 +63,7 @@ public class ReadAndWriteExcelByJXL {
 			int sheetnumber= wb.getNumberOfSheets();
 			//for-each方法获取所有的sheet中的数据
 			for(Sheet  sheetObj:sheets ){
-				sheetName = sheetObj.getName();
+				//sheetName = sheetObj.getName();
 				//获取该excel的第一个表格中数据的行数
 				int length = sheetObj.getRows();//getRowHeight(int)方法的是获取行高； 而getRows()方法是获取行数
 				int lieshu = sheetObj.getColumns();//
@@ -102,6 +99,87 @@ public class ReadAndWriteExcelByJXL {
 		return testData;
 
 	}
+	
+	
+	 /**
+     * 
+	 * 
+	 * 目前是直接把整个excel表格中的第一个sheet中的数据都读取然后封装到一个数组Object[][]返回
+	 * 创建一个静态类方法，实现从excel表格中读取数(静态类方法只能调该类的静态成员变量)
+	 * 当单元格为空时，使用getContents()获取到的结果是""
+     * @param dataExcel
+     * @return   返回值为数组， 方便testng 的 dataProvider调用(testng的dataPrivider需要数组或者map等类型)
+     * @throws BiffException
+     * @throws IOException
+     */
+	public static String[][] getDataBySheetName(File dataExcel,String sheetName) {
+		// TODO Auto-generated constructor stub
+		//File dataExcel = new File("g:\\data");
+		String[][] testData=null;//对一个一个字符串类型的二维数组
+		//Map<String,String> testdata;
+		Workbook  wb = null;
+			try {
+				wb =Workbook.getWorkbook(dataExcel);
+			} catch (BiffException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				Assert.assertNotNull(wb, "获取文件失败");
+			}
+			//获得该excel所有的sheet
+			Sheet[] sheets =wb.getSheets();
+			int sheetnumber= wb.getNumberOfSheets();
+			//for-each方法获取所有的sheet中的数据
+			for(Sheet  sheetObj:sheets ){
+				
+				if(sheetName.equals(sheetObj.getName())&&sheetObj.getName()!=null){
+					//获取该excel的指定表格中数据的行数
+					int length = sheetObj.getRows();//getRowHeight(int)方法的是获取行高； 而getRows()方法是获取行数
+					int lieshu = sheetObj.getColumns();//
+					int realLength=0;
+					while(!sheetObj.getCell(0, realLength).getContents().equals("") && sheetObj. getCell(0, realLength).getContents()!= null ){//！A.equals(B)表示不相等
+						//使用while去筛选不是空的行列 ; 因为add的数量是根据lenth的，所以实际上还是要限制length这个值
+						if(realLength<length-1){//加这个if防止realLength过大，造成行的数组越界
+							realLength++;
+						}else{
+							break;//可以在加个判断，让realLength,获取到真实行数后跳出循环
+						}
+					}
+					//注意要在while 的语句中     加入跳出循环条件 否则while 自身就会无限循环了
+					//ActionTestData actionTestData = null;//new TestData();
+					//Map<String,String> testdata = new HashMap<>();
+					
+					testData = new String[length-1][lieshu];//因为第一列标题栏是不作为驱动数据的，所以返回的实际测试行数，要少一；
+					for(int i=1;i<=realLength;i++){
+						//从第二行开始获取数据，因为第一行是标题    行  length
+					/*	actionTestData = new ActionTestData();
+						actionTestData.setSheetName(sheetName);*/
+						for(int j=0;j<sheetObj.getColumns();j++){
+							//testdata.put(key, sheetObj.getCell(j, i).getContents());
+							testData[i-1][j]=sheetObj.getCell(j, i).getContents();
+							System.out.println("EXCEL表测试数据第"+i+"行，第"+j+"列的数据是："+ testData[i-1][j]);
+						}
+					}
+					
+				}else{
+					System.out.println("测试数据sheet" + sheetObj.getName() +"不存在");
+					Log4jUtil log =new Log4jUtil(sheetObj.getName());
+					log.logger.info("测试数据sheet" + sheetObj.getName() +"不存在");
+					Assert.assertTrue(sheetName.equals(sheetObj.getName()), "测试数据sheet" + sheetObj.getName() +"不存在");
+				}
+				
+			}
+		if(wb!=null){
+			wb.close();//读取完，关闭workbook工作簿对象
+		}
+		
+		return testData;
+
+	}
+	
+	
+	
+	
+	
 	/**
 	 * 刚方法用来将测试结果存放到excel表格里，(在结果错误的时候让字体颜色变红还待实现)
 	 * @param testResult

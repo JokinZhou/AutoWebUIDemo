@@ -5,11 +5,19 @@ package page;
 
 
 
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+
+import comm.Scene;
+import fileUtil.ReadAndWriteExcelByJXL;
 
 /**
  * @author lenovo
@@ -19,7 +27,7 @@ import org.testng.annotations.BeforeClass;
 public class BasePage {  
 	  
     public static WebDriver driver;  
-    public static String pageTitle;  
+    public static String pageTitle;//static变量线程不安全
     public static String pageUrl;
       
     /* 
@@ -79,15 +87,13 @@ public class BasePage {
     /* 
      * 判断一个页面元素是否显示在当前页面 
      */    
-    public  void verifyElementIsPresent(WebElement element){  
+    public  boolean verifyElementIsPresent(WebElement element){  
               
-        try {  
-                if (element.isDisplayed()) {  
-                    System.out.println("This Element " + element.toString().trim()+" is present.");        
-                }  
-            } catch (Exception e) {  
-            	e.printStackTrace();  
-            }  
+    	if (element.isDisplayed()) {  
+            System.out.println("This Element " + element.toString().trim()+" is present.");
+            return true;
+        }
+		return false;
         }  
       
     /* 
@@ -131,5 +137,6 @@ public class BasePage {
     	action.clickAndHold(sourceElement).moveToElement(targetElement).perform();
     	action.release();
     }
+    
          
 }  

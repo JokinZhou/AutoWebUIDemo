@@ -15,6 +15,7 @@ public class CaseChoicePermissionTest {
 	  protected WebDriver wd;
 	  @BeforeClass
 	  public void beforeClass() {
+		  
 		  CI = new ChromeInit();
 		  wd =CI.getWebDriver();
 		  wd.manage().window().maximize();
@@ -26,7 +27,7 @@ public class CaseChoicePermissionTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-	       
+	     
 	  }
 
 	  @AfterClass
