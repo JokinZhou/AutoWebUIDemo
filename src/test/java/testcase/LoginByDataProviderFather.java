@@ -34,7 +34,12 @@ public class LoginByDataProviderFather extends BaseCase {
 	  public void afterClass() {
 		  
 	  }
-	  
+	  /**
+	   * 
+	   * @param useNname
+	   * @param password
+	   * @param exp  此处填写预期结果 即预期结果页的特定元素是否显示/或者是预期结果的元素值 是否等于实际值
+	   */
 	 @Test(description = "登录", dataProvider = CONST.PROVIDER_DATA)
 	 public void loginTest(String useNname,String password,String exp) {
 		  ChromeInit CI;

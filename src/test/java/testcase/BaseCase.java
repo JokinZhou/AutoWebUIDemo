@@ -25,6 +25,7 @@ public class BaseCase {
    * 
    * @param method
    * @return
+   * @DataProvider中添加parallel=true。dataprovider多组测试数据之间的并发 如果不加的话一个DataProvider中的多组数据依然是顺序执行
    */
   @DataProvider(name="testData" , parallel = true)
 	public Object[][] data(Method method){//改方法一定要是static静态方法否则获取 数据接收方获取不到改方法提供的数据报错
